@@ -1,0 +1,13 @@
+report1:
+  bigquery_query: "SELECT * FROM `bigquery-public-data.samples.shakespeare` where partitioned_field >= {{start_day}} and partitioned_field <= {{end_day}}"
+  schedule: "0 0 * * *"
+  gcs_path: "gs://your-bucket/report1/"
+  transformation_class: ""
+  report_format: "CSV"
+
+report2:
+  bigquery_query: "SELECT * FROM `bigquery-public-data.samples.shakespeare` where partitioned_field >= {{start_day}} and partitioned_field <= {{end_day}} LIMIT 100"
+  schedule: "0 0 * * *"
+  gcs_path: "gs://your-bucket/report2/"
+  transformation_class: ""
+  report_format: "CSV"
